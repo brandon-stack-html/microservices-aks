@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productos
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: productos
+          image: 7brandon/productos:qa

@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+
+namePrefix: "dev-"
+
+patchesStrategicMerge:
+  - cliente-deployment-dev.yaml
+  - productos-deployment-dev.yaml
+  - frontend-deployment-dev.yaml

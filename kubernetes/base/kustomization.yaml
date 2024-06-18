@@ -1,0 +1,7 @@
+resources:
+  - cliente-deployment.yaml
+  - productos-deployment.yaml
+  - frontend-deployment.yaml
+  - cliente-service.yaml
+  - productos-service.yaml
+  - frontend-service.yaml

@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+
+namePrefix: "qa-"
+
+patchesStrategicMerge:
+  - cliente-deployment-qa.yaml
+  - productos-deployment-qa.yaml
+  - frontend-deployment-qa.yaml

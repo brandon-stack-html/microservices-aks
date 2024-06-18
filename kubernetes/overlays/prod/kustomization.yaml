@@ -1,0 +1,9 @@
+resources:
+  - ../../base
+
+namePrefix: "prod-"
+
+patchesStrategicMerge:
+  - cliente-deployment-prod.yaml
+  - productos-deployment-prod.yaml
+  - frontend-deployment-prod.yaml
