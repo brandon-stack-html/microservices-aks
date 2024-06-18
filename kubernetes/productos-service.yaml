@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: productos-service
+spec:
+  selector:
+    app: productos
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
