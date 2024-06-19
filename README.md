@@ -1,0 +1,1 @@
+y en este ultimo labororio logre desplegar mis archivos de kubernetes con hell lo cual me brindo de una manera rapido ip publicas con el contenido de la pagina que se mostraria en los tres enviroment qa-dev-prod pero con sutiles cambios 
