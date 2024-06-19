@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  repository: 7brandon/my-node-app-frontend
+  tag: dev
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: dev.my-node-app.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: []

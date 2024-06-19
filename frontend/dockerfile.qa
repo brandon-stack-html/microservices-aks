@@ -8,7 +8,7 @@ WORKDIR /app
 COPY frontend.js package.json /app/
 
 # Instalar dependencias
-RUN npm install
+RUN npm install --only=production
 
 # Comando por defecto para ejecutar la aplicación
 CMD ["node", "frontend.js"]

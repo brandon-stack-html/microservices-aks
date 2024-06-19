@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  index-dev.html: "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n  <title>Microservicios
+    Frontend - DEV</title>\r\n</head>\r\n<body>\r\n  <h1>Microservicios Frontend -
+    DEV</h1>\r\n  <div>\r\n    <h2>Clientes</h2>\r\n    <ul id=\"clientes\"></ul>\r\n
+    \ </div>\r\n  <div>\r\n    <h2>Productos</h2>\r\n    <ul id=\"productos\"></ul>\r\n
+    \ </div>\r\n\r\n  <script>\r\n    async function fetchClientes() {\r\n      try
+    {\r\n        const response = await fetch('http://cliente-service/clientes');\r\n
+    \       const clientes = await response.json();\r\n        const clientesList
+    = document.getElementById('clientes');\r\n        clientesList.innerHTML = '';\r\n
+    \       clientes.forEach(cliente => {\r\n          const li = document.createElement('li');\r\n
+    \         li.textContent = cliente.name;\r\n          clientesList.appendChild(li);\r\n
+    \       });\r\n      } catch (error) {\r\n        console.error('Error al obtener
+    clientes:', error);\r\n      }\r\n    }\r\n\r\n    async function fetchProductos()
+    {\r\n      try {\r\n        const response = await fetch('http://productos-service/productos');\r\n
+    \       const productos = await response.json();\r\n        const productosList
+    = document.getElementById('productos');\r\n        productosList.innerHTML = '';\r\n
+    \       productos.forEach(producto => {\r\n          const li = document.createElement('li');\r\n
+    \         li.textContent = producto.name;\r\n          productosList.appendChild(li);\r\n
+    \       });\r\n      } catch (error) {\r\n        console.error('Error al obtener
+    productos:', error);\r\n      }\r\n    }\r\n\r\n    fetchClientes();\r\n    fetchProductos();\r\n
+    \ </script>\r\n</body>\r\n</html>\r\n"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: my-node-app-dev-index-html

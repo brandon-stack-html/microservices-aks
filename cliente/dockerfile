@@ -1,12 +1,14 @@
-FROM node:14
+# Base image
+FROM node:14-alpine
 
+# Directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-COPY . .
+# Copiar archivos de la aplicación
+COPY cliente.js package.json /app/
 
+# Instalar dependencias
 RUN npm install
 
-EXPOSE 3001
-
+# Comando por defecto para ejecutar la aplicación
 CMD ["node", "cliente.js"]
-

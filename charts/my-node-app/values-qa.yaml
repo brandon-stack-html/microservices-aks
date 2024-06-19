@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  repository: 7brandon/my-node-app-cliente
+  tag: qa
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: qa.my-node-app.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: []

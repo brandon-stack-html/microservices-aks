@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image:
+  repository: 7brandon/my-node-app-productos
+  tag: prod
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: prod.my-node-app.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: []

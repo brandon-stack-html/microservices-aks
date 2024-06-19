@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microservicios Frontend - DEV</title>
+</head>
+<body>
+  <h1>Microservicios Frontend - DEV</h1>
+  <div>
+    <h2>Clientes</h2>
+    <ul id="clientes"></ul>
+  </div>
+  <div>
+    <h2>Productos</h2>
+    <ul id="productos"></ul>
+  </div>
+
+  <script>
+    async function fetchClientes() {
+      try {
+        const response = await fetch('http://cliente-service/clientes');
+        const clientes = await response.json();
+        const clientesList = document.getElementById('clientes');
+        clientesList.innerHTML = '';
+        clientes.forEach(cliente => {
+          const li = document.createElement('li');
+          li.textContent = cliente.name;
+          clientesList.appendChild(li);
+        });
+      } catch (error) {
+        console.error('Error al obtener clientes:', error);
+      }
+    }
+
+    async function fetchProductos() {
+      try {
+        const response = await fetch('http://productos-service/productos');
+        const productos = await response.json();
+        const productosList = document.getElementById('productos');
+        productosList.innerHTML = '';
+        productos.forEach(producto => {
+          const li = document.createElement('li');
+          li.textContent = producto.name;
+          productosList.appendChild(li);
+        });
+      } catch (error) {
+        console.error('Error al obtener productos:', error);
+      }
+    }
+
+    fetchClientes();
+    fetchProductos();
+  </script>
+</body>
+</html>

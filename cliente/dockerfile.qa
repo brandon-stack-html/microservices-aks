@@ -5,10 +5,10 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copiar archivos de la aplicación
-COPY frontend.js package.json /app/
+COPY cliente.js package.json /app/
 
 # Instalar dependencias
-RUN npm install
+RUN npm install --only=production
 
 # Comando por defecto para ejecutar la aplicación
-CMD ["node", "frontend.js"]
+CMD ["node", "cliente.js"]
