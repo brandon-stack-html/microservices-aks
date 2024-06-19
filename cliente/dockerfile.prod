@@ -1,0 +1,20 @@
+# Utiliza una imagen base de Node.js versión 14 optimizada para producción
+FROM node:14-alpine
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /usr/src/app
+
+# Copia el archivo package.json y package-lock.json (si existe)
+COPY package*.json ./
+
+# Instala las dependencias (en producción no se incluyen los devDependencies)
+RUN npm install --only=production
+
+# Copia el resto de los archivos de la aplicación
+COPY . .
+
+# Expone el puerto en el que la aplicación va a escuchar
+EXPOSE 3000
+
+# Comando para ejecutar la aplicación en modo producción
+CMD ["node", "cliente.js"]

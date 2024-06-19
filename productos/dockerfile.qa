@@ -1,0 +1,20 @@
+# Usa una imagen base de Node.js versión 14 para entorno de QA
+FROM node:14
+
+# Establece el directorio de trabajo dentro del contenedor
+WORKDIR /usr/src/app
+
+# Copia el archivo package.json y package-lock.json para instalar las dependencias
+COPY package*.json ./
+
+# Instala las dependencias necesarias, pero solo las de producción
+RUN npm install --only=production
+
+# Copia todos los archivos del directorio actual al directorio de trabajo del contenedor
+COPY . .
+
+# Expone el puerto 3000 para que la aplicación pueda ser accedida desde fuera del contenedor
+EXPOSE 3000
+
+# Comando por defecto para ejecutar la aplicación
+CMD ["node", "productos.js"]

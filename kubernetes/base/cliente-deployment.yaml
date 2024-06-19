@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: cliente
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: cliente
@@ -13,7 +13,7 @@ spec:
         app: cliente
     spec:
       containers:
-      - name: cliente
-        image: 7brandon/cliente
-        ports:
-        - containerPort: 3000
+        - name: cliente
+          image: 7brandon/cliente:latest
+          ports:
+            - containerPort: 3000
